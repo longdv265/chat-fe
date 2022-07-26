@@ -20,7 +20,6 @@ export class UserServiceService {
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
-
   login(dataInput: object) {
     return this.http.post<any>(`${environment.appUrl}/login`, dataInput).pipe(map(user => {
       localStorage.setItem('currentUser', JSON.stringify(user));
@@ -29,7 +28,7 @@ export class UserServiceService {
     }));
   }
 
-  callPusher(input : object){
-    return this.http.post(`${environment.appUrl}/messages`,input);
+  callPusher(input: object) {
+    return this.http.post(`${environment.appUrl}/messages`, input);
   }
 }
